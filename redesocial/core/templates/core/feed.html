@@ -1,0 +1,16 @@
+<!-- core/templates/core/feed.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Feed</h2>
+  {% for postagem in postagens %}
+    <div class="postagem">
+      <h3>{{ postagem.autor.username }}</h3>
+      <p>{{ postagem.conteudo }}</p>
+      {% if postagem.imagem %}
+        <img src="{{ postagem.imagem.url }}" alt="Imagem da postagem">
+      {% endif %}
+      <p>Curtidas: {{ postagem.curtidas.count }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
